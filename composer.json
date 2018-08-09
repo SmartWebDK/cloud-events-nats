@@ -1,0 +1,19 @@
+{
+    "name": "smartweb/cloud-events-nats",
+    "description": "PHP implementation of the NATS Transport Binding for CloudEvents specification.",
+    "authors": [
+        {
+            "name": "Nicolai Agersbæk",
+            "email": "na@smartweb.dk"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=7.1.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "SmartWeb\\CloudEvents\\Nats\\": "src/"
+        }
+    }
+}
