@@ -95,6 +95,8 @@ final class PayloadFields
     }
     
     /**
+     * Complete list of all supported payload fields.
+     *
      * @return string[]
      */
     public static function getSupportedFields() : array
@@ -103,6 +105,8 @@ final class PayloadFields
     }
     
     /**
+     * List of all _required_ payload fields.
+     *
      * @return string[]
      */
     public static function getRequiredFields() : array
