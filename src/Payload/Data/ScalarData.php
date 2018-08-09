@@ -43,7 +43,9 @@ class ScalarData implements PayloadDataInterface
     }
     
     /**
-     * @inheritDoc
+     * @see \JsonSerializable::jsonSerialize()
+     *
+     * @return bool|float|int|string
      */
     public function jsonSerialize()
     {

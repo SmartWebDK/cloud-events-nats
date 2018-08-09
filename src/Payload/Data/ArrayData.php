@@ -28,7 +28,9 @@ class ArrayData implements PayloadDataInterface
     }
     
     /**
-     * @inheritDoc
+     * @see \JsonSerializable::jsonSerialize()
+     *
+     * @return array
      */
     public function jsonSerialize() : array
     {
