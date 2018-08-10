@@ -2,9 +2,9 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Payload;
+namespace SmartWeb\CloudEvents\Nats\Context;
 
-use SmartWeb\CloudEvents\Nats\Payload\Data\PayloadDataInterface;
+use SmartWeb\CloudEvents\Nats\Context\Data\PayloadDataInterface;
 
 /**
  * The payload of an event according to the CloudEvents NATS Transporting Binding specification.
@@ -15,7 +15,7 @@ use SmartWeb\CloudEvents\Nats\Payload\Data\PayloadDataInterface;
  *
  * @api
  */
-class Payload implements PayloadInterface
+class Context implements ContextInterface
 {
     
     /**

@@ -2,10 +2,10 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Payload;
+namespace SmartWeb\CloudEvents\Nats\Context;
 
+use SmartWeb\CloudEvents\Nats\Context\Data\PayloadDataInterface;
 use SmartWeb\CloudEvents\Nats\Exception\PayloadBuilderError;
-use SmartWeb\CloudEvents\Nats\Payload\Data\PayloadDataInterface;
 
 /**
  * Defines a class capable of building payload objects.
@@ -14,13 +14,13 @@ use SmartWeb\CloudEvents\Nats\Payload\Data\PayloadDataInterface;
  *
  * @api
  */
-interface PayloadBuilderInterface
+interface ContextBuilderInterface
 {
     
     /**
      * Create an instance of this builder.
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public static function create() : self;
     
@@ -29,7 +29,7 @@ interface PayloadBuilderInterface
      *
      * @param string $type
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setEventType(string $type) : self;
     
@@ -38,7 +38,7 @@ interface PayloadBuilderInterface
      *
      * @param string $version
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setEventTypeVersion(string $version) : self;
     
@@ -47,7 +47,7 @@ interface PayloadBuilderInterface
      *
      * @param string $version
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setCloudEventsVersion(string $version) : self;
     
@@ -56,7 +56,7 @@ interface PayloadBuilderInterface
      *
      * @param string $source
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setSource(string $source) : self;
     
@@ -65,7 +65,7 @@ interface PayloadBuilderInterface
      *
      * @param string $id
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setEventId(string $id) : self;
     
@@ -74,7 +74,7 @@ interface PayloadBuilderInterface
      *
      * @param \DateTimeInterface $time
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setEventTime(\DateTimeInterface $time) : self;
     
@@ -83,7 +83,7 @@ interface PayloadBuilderInterface
      *
      * @param string $schemaURL
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setSchemaURL(string $schemaURL) : self;
     
@@ -92,7 +92,7 @@ interface PayloadBuilderInterface
      *
      * @param string $contentType
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setContentType(string $contentType) : self;
     
@@ -101,7 +101,7 @@ interface PayloadBuilderInterface
      *
      * @param array $extensions
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setExtensions(array $extensions) : self;
     
@@ -110,16 +110,16 @@ interface PayloadBuilderInterface
      *
      * @param PayloadDataInterface $data
      *
-     * @return PayloadBuilderInterface
+     * @return ContextBuilderInterface
      */
     public function setData(PayloadDataInterface $data) : self;
     
     /**
      * Construct a payload using the configured values of this builder.
      *
-     * @return PayloadInterface
+     * @return ContextInterface
      *
      * @throws PayloadBuilderError
      */
-    public function build() : PayloadInterface;
+    public function build() : ContextInterface;
 }

@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Payload\Data;
+namespace SmartWeb\CloudEvents\Nats\Context\Data;
 
 /**
  * Implementation of payload data using an underlying array.

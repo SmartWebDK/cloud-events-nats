@@ -2,10 +2,10 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Payload;
+namespace SmartWeb\CloudEvents\Nats\Context;
 
+use SmartWeb\CloudEvents\Nats\Context\Data\PayloadDataInterface;
 use SmartWeb\CloudEvents\Nats\Exception\PayloadBuilderError;
-use SmartWeb\CloudEvents\Nats\Payload\Data\PayloadDataInterface;
 
 /**
  * Builder for creating payload objects.
@@ -14,7 +14,7 @@ use SmartWeb\CloudEvents\Nats\Payload\Data\PayloadDataInterface;
  *
  * @api
  */
-class PayloadBuilder implements PayloadBuilderInterface
+class ContextBuilder implements ContextBuilderInterface
 {
     
     // FIXME: Missing tests!
@@ -38,7 +38,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public static function create() : PayloadBuilderInterface
+    public static function create() : ContextBuilderInterface
     {
         return new self();
     }
@@ -46,11 +46,11 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function build() : PayloadInterface
+    public function build() : ContextInterface
     {
         $this->validateBuilderArgs();
         
-        return new Payload(...\array_values($this->builderArgs));
+        return new Context(...\array_values($this->builderArgs));
     }
     
     private function validateBuilderArgs() : void
@@ -74,7 +74,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setEventType(string $type) : PayloadBuilderInterface
+    public function setEventType(string $type) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::EVENT_TYPE] = $type;
         
@@ -84,7 +84,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setEventTypeVersion(string $version) : PayloadBuilderInterface
+    public function setEventTypeVersion(string $version) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::EVENT_TYPE_VERSION] = $version;
         
@@ -94,7 +94,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setCloudEventsVersion(string $version) : PayloadBuilderInterface
+    public function setCloudEventsVersion(string $version) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::CLOUD_EVENTS_VERSION] = $version;
         
@@ -104,7 +104,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setSource(string $source) : PayloadBuilderInterface
+    public function setSource(string $source) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::SOURCE] = $source;
         
@@ -114,7 +114,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setEventId(string $id) : PayloadBuilderInterface
+    public function setEventId(string $id) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::EVENT_ID] = $id;
         
@@ -124,7 +124,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setEventTime(\DateTimeInterface $time) : PayloadBuilderInterface
+    public function setEventTime(\DateTimeInterface $time) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::EVENT_TIME] = $time;
         
@@ -134,7 +134,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setSchemaURL(string $schemaURL) : PayloadBuilderInterface
+    public function setSchemaURL(string $schemaURL) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::SCHEMA_URL] = $schemaURL;
         
@@ -144,7 +144,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setContentType(string $contentType) : PayloadBuilderInterface
+    public function setContentType(string $contentType) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::CONTENT_TYPE] = $contentType;
         
@@ -154,7 +154,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setExtensions(array $extensions) : PayloadBuilderInterface
+    public function setExtensions(array $extensions) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::EXTENSIONS] = $extensions;
         
@@ -164,7 +164,7 @@ class PayloadBuilder implements PayloadBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setData(PayloadDataInterface $data) : PayloadBuilderInterface
+    public function setData(PayloadDataInterface $data) : ContextBuilderInterface
     {
         $this->builderArgs[PayloadFields::DATA] = $data;
         
