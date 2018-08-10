@@ -11,7 +11,7 @@ namespace SmartWeb\CloudEvents\Nats\Context\Data;
  *
  * @internal
  */
-class ArrayData implements PayloadDataInterface
+class ArrayData implements EventDataInterface
 {
     
     /**

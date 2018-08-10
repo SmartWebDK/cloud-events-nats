@@ -13,7 +13,7 @@ use SmartWeb\CloudEvents\Nats\Exception\InvalidArgumentException;
  *
  * @internal
  */
-class ScalarData implements PayloadDataInterface
+class ScalarData implements EventDataInterface
 {
     
     /**

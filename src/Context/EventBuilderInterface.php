@@ -4,23 +4,22 @@ declare(strict_types = 1);
 
 namespace SmartWeb\CloudEvents\Nats\Context;
 
-use SmartWeb\CloudEvents\Nats\Context\Data\PayloadDataInterface;
 use SmartWeb\CloudEvents\Nats\Exception\PayloadBuilderError;
 
 /**
- * Defines a class capable of building payload objects.
+ * Defines a class capable of building CloudEvent events.
  *
  * @author Nicolai Agersbæk <na@smartweb.dk>
  *
  * @api
  */
-interface ContextBuilderInterface
+interface EventBuilderInterface
 {
     
     /**
      * Create an instance of this builder.
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public static function create() : self;
     
@@ -29,7 +28,7 @@ interface ContextBuilderInterface
      *
      * @param string $type
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setEventType(string $type) : self;
     
@@ -38,7 +37,7 @@ interface ContextBuilderInterface
      *
      * @param string $version
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setEventTypeVersion(string $version) : self;
     
@@ -47,7 +46,7 @@ interface ContextBuilderInterface
      *
      * @param string $version
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setCloudEventsVersion(string $version) : self;
     
@@ -56,7 +55,7 @@ interface ContextBuilderInterface
      *
      * @param string $source
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setSource(string $source) : self;
     
@@ -65,25 +64,25 @@ interface ContextBuilderInterface
      *
      * @param string $id
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setEventId(string $id) : self;
     
     /**
      * Set the event time of the payload to be created.
      *
-     * @param \DateTimeInterface $time
+     * @param string $time
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
-    public function setEventTime(\DateTimeInterface $time) : self;
+    public function setEventTime(string $time) : self;
     
     /**
      * Set the URL for the schema of the payload to be created.
      *
      * @param string $schemaURL
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setSchemaURL(string $schemaURL) : self;
     
@@ -92,7 +91,7 @@ interface ContextBuilderInterface
      *
      * @param string $contentType
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setContentType(string $contentType) : self;
     
@@ -101,25 +100,25 @@ interface ContextBuilderInterface
      *
      * @param array $extensions
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
     public function setExtensions(array $extensions) : self;
     
     /**
      * Set the data of the payload to be created.
      *
-     * @param PayloadDataInterface $data
+     * @param array $data
      *
-     * @return ContextBuilderInterface
+     * @return EventBuilderInterface
      */
-    public function setData(PayloadDataInterface $data) : self;
+    public function setData(array $data) : self;
     
     /**
      * Construct a payload using the configured values of this builder.
      *
-     * @return ContextInterface
+     * @return EventInterface
      *
      * @throws PayloadBuilderError
      */
-    public function build() : ContextInterface;
+    public function build() : EventInterface;
 }

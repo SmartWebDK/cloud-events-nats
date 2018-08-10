@@ -4,18 +4,16 @@ declare(strict_types = 1);
 
 namespace SmartWeb\CloudEvents\Nats\Context;
 
-use SmartWeb\CloudEvents\Nats\Context\Data\PayloadDataInterface;
-
 /**
- * Definition of the payload of an event according to the CloudEvents NATS Transporting Binding specification.
+ * Definition of an event according to the CloudEvents NATS Transporting Binding specification.
  *
- * @see https://github.com/cloudevents/spec/blob/master/nats-transport-binding.md
+ * @see    https://github.com/cloudevents/spec/blob/master/nats-transport-binding.md
  *
  * @author Nicolai Agersbæk <na@smartweb.dk>
  *
  * @api
  */
-interface ContextInterface
+interface EventInterface
 {
     
     /**
@@ -63,10 +61,11 @@ interface ContextInterface
     
     /**
      * Timestamp of when the event happened.
+     * If present, MUST adhere to the format specified in RFC 3339.
      *
-     * @return \DateTimeInterface|null
+     * @return null|string
      */
-    public function getEventTime() : ?\DateTimeInterface;
+    public function getEventTime() : ?string ;
     
     /**
      * A link to the schema that the data attribute adheres to.
@@ -101,7 +100,7 @@ interface ContextInterface
      * the payload is encoded into a media format which is specified by the
      * contentType attribute (e.g. application/json).
      *
-     * @return null|PayloadDataInterface
+     * @return array|null
      */
-    public function getData() : ?PayloadDataInterface;
+    public function getData() : ?array;
 }

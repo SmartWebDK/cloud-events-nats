@@ -5,13 +5,13 @@ declare(strict_types = 1);
 namespace SmartWeb\CloudEvents\Nats\Context;
 
 /**
- * Definition of fields for a CloudEvents payload.
+ * Definition of fields for a CloudEvents event.
  *
  * @author Nicolai Agersbæk <na@smartweb.dk>
  *
  * @api
  */
-final class PayloadFields
+final class EventFields
 {
     
     /**
@@ -68,26 +68,26 @@ final class PayloadFields
      * @var string[]
      */
     private static $supportedFields = [
-        PayloadFields::EVENT_TYPE,
-        PayloadFields::EVENT_TYPE_VERSION,
-        PayloadFields::CLOUD_EVENTS_VERSION,
-        PayloadFields::SOURCE,
-        PayloadFields::EVENT_ID,
-        PayloadFields::EVENT_TIME,
-        PayloadFields::SCHEMA_URL,
-        PayloadFields::CONTENT_TYPE,
-        PayloadFields::EXTENSIONS,
-        PayloadFields::DATA,
+        EventFields::EVENT_TYPE,
+        EventFields::EVENT_TYPE_VERSION,
+        EventFields::CLOUD_EVENTS_VERSION,
+        EventFields::SOURCE,
+        EventFields::EVENT_ID,
+        EventFields::EVENT_TIME,
+        EventFields::SCHEMA_URL,
+        EventFields::CONTENT_TYPE,
+        EventFields::EXTENSIONS,
+        EventFields::DATA,
     ];
     
     /**
      * @var string[]
      */
     private static $requiredFields = [
-        PayloadFields::EVENT_TYPE,
-        PayloadFields::CLOUD_EVENTS_VERSION,
-        PayloadFields::SOURCE,
-        PayloadFields::EVENT_ID,
+        EventFields::EVENT_TYPE,
+        EventFields::CLOUD_EVENTS_VERSION,
+        EventFields::SOURCE,
+        EventFields::EVENT_ID,
     ];
     
     private function __construct()

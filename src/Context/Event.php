@@ -4,18 +4,16 @@ declare(strict_types = 1);
 
 namespace SmartWeb\CloudEvents\Nats\Context;
 
-use SmartWeb\CloudEvents\Nats\Context\Data\PayloadDataInterface;
-
 /**
  * The payload of an event according to the CloudEvents NATS Transporting Binding specification.
  *
- * @see https://github.com/cloudevents/spec/blob/master/nats-transport-binding.md
+ * @see    https://github.com/cloudevents/spec/blob/master/nats-transport-binding.md
  *
  * @author Nicolai Agersbæk <na@smartweb.dk>
  *
  * @api
  */
-class Context implements ContextInterface
+class Event implements EventInterface
 {
     
     /**
@@ -44,7 +42,7 @@ class Context implements ContextInterface
     private $eventId;
     
     /**
-     * @var \DateTimeInterface|null
+     * @var null|string
      */
     private $eventTime;
     
@@ -64,23 +62,23 @@ class Context implements ContextInterface
     private $extensions;
     
     /**
-     * @var null|PayloadDataInterface
+     * @var array|null
      */
     private $data;
     
     /**
      * Payload constructor.
      *
-     * @param string                    $eventType
-     * @param null|string               $eventTypeVersion
-     * @param string                    $cloudEventsVersion
-     * @param string                    $source
-     * @param string                    $eventId
-     * @param \DateTimeInterface|null   $eventTime
-     * @param string|null               $schemaURL
-     * @param string|null               $contentType
-     * @param array|null                $extensions
-     * @param null|PayloadDataInterface $data
+     * @param string      $eventType
+     * @param null|string $eventTypeVersion
+     * @param string      $cloudEventsVersion
+     * @param string      $source
+     * @param string      $eventId
+     * @param null|string $eventTime
+     * @param string|null $schemaURL
+     * @param string|null $contentType
+     * @param array|null  $extensions
+     * @param array|null  $data
      */
     public function __construct(
         string $eventType,
@@ -88,18 +86,18 @@ class Context implements ContextInterface
         string $cloudEventsVersion,
         string $source,
         string $eventId,
-        ?\DateTimeInterface $eventTime,
+        ?string $eventTime,
         ?string $schemaURL,
         ?string $contentType,
         ?array $extensions,
-        ?PayloadDataInterface $data
+        ?array $data
     ) {
         $this->eventType = $eventType;
         $this->eventTypeVersion = $eventTypeVersion;
-        $this->eventId = $eventId;
-        $this->eventTime = $eventTime;
         $this->cloudEventsVersion = $cloudEventsVersion;
         $this->source = $source;
+        $this->eventId = $eventId;
+        $this->eventTime = $eventTime;
         $this->schemaURL = $schemaURL;
         $this->contentType = $contentType;
         $this->extensions = $extensions;
@@ -149,7 +147,7 @@ class Context implements ContextInterface
     /**
      * @inheritDoc
      */
-    public function getEventTime() : ?\DateTimeInterface
+    public function getEventTime() : ?string
     {
         return $this->eventTime;
     }
@@ -181,7 +179,7 @@ class Context implements ContextInterface
     /**
      * @inheritDoc
      */
-    public function getData() : ?PayloadDataInterface
+    public function getData() : ?array
     {
         return $this->data;
     }
