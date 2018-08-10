@@ -7,9 +7,10 @@ namespace SmartWeb\CloudEvents\Nats\Event;
 /**
  * Definition of an event according to the CloudEvents NATS Transporting Binding specification.
  *
- * @see    https://github.com/cloudevents/spec/blob/master/nats-transport-binding.md
+ * @link    https://github.com/cloudevents/spec/blob/v0.1/spec.md#context-attributes
+ * @link    https://github.com/cloudevents/spec/blob/master/nats-transport-binding.md#2-use-of-cloudevents-attributes
  *
- * @author Nicolai Agersbæk <na@smartweb.dk>
+ * @author  Nicolai Agersbæk <na@smartweb.dk>
  *
  * @api
  */
@@ -20,6 +21,8 @@ interface EventInterface
      * Type of occurrence which has happened. Often this property is used for
      * routing, observability, policy enforcement, etc.
      *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#eventtype
+     *
      * @return string
      */
     public function getEventType() : string;
@@ -28,6 +31,8 @@ interface EventInterface
      * The version of the eventType. This enables the interpretation of data by
      * eventual consumers, requires the consumer to be knowledgeable about the producer.
      *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#eventtypeversion
+     *
      * @return null|string
      */
     public function getEventTypeVersion() : ?string;
@@ -35,6 +40,8 @@ interface EventInterface
     /**
      * The version of the CloudEvents specification which the event uses.
      * This enables the interpretation of the context.
+     *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#cloudeventsversion
      *
      * @return string
      */
@@ -46,6 +53,8 @@ interface EventInterface
      * organization publishing the event, and some unique identifiers. The exact syntax
      * and semantics behind the data encoded in the URI is event producer defined.
      *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#source
+     *
      * @return string
      */
     public function getSource() : string;
@@ -55,20 +64,25 @@ interface EventInterface
      * The semantics of this string are explicitly undefined to ease the
      * implementation of producers. Enables deduplication.
      *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#eventid
+     *
      * @return string
      */
     public function getEventId() : string;
     
     /**
      * Timestamp of when the event happened.
-     * If present, MUST adhere to the format specified in RFC 3339.
+     *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#eventtime
      *
      * @return null|string
      */
-    public function getEventTime() : ?string ;
+    public function getEventTime() : ?string;
     
     /**
      * A link to the schema that the data attribute adheres to.
+     *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#schemaurl
      *
      * @return null|string
      */
@@ -76,6 +90,8 @@ interface EventInterface
     
     /**
      * Describe the data encoding format.
+     *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#contenttype
      *
      * @return null|string
      */
@@ -88,6 +104,7 @@ interface EventInterface
      * to the CloudEvents specification. See the Extensions document for a list
      * of possible properties.
      *
+     * @link
      * @link https://github.com/cloudevents/spec/blob/v0.1/extensions.md Extensions
      *
      * @return array|null
@@ -99,6 +116,8 @@ interface EventInterface
      * The payload depends on the eventType, schemaURL and eventTypeVersion,
      * the payload is encoded into a media format which is specified by the
      * contentType attribute (e.g. application/json).
+     *
+     * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#data-1
      *
      * @return array|null
      */
