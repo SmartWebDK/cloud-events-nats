@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Context;
+namespace SmartWeb\CloudEvents\Nats\Event;
 
 use SmartWeb\CloudEvents\Nats\Exception\PayloadBuilderError;
 

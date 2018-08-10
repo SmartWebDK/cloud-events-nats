@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Context;
+namespace SmartWeb\CloudEvents\Nats\Event;
 
 /**
  * The payload of an event according to the CloudEvents NATS Transporting Binding specification.

@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Context\Data;
+namespace SmartWeb\CloudEvents\Nats\Event\Data;
 
 use SmartWeb\CloudEvents\Nats\Exception\InvalidArgumentException;
 

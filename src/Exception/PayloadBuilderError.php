@@ -7,7 +7,7 @@ namespace SmartWeb\CloudEvents\Nats\Exception;
 /**
  * Exception caused by an issue during the construction of a payload object using a builder.
  *
- * @see    \SmartWeb\CloudEvents\Nats\Context\EventBuilderInterface
+ * @see    \SmartWeb\CloudEvents\Nats\Event\EventBuilderInterface
  *
  * @author Nicolai Agersbæk <na@smartweb.dk>
  *

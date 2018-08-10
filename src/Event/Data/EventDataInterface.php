@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Context\Data;
+namespace SmartWeb\CloudEvents\Nats\Event\Data;
 
 /**
  * Definition of an object that can be used as data for a CloudEvents event.

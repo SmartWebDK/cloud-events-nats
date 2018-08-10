@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 
-namespace SmartWeb\CloudEvents\Nats\Context;
+namespace SmartWeb\CloudEvents\Nats\Event;
 
 /**
  * Definition of fields for a CloudEvents event.
