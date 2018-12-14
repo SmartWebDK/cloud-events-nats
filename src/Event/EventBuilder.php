@@ -67,7 +67,15 @@ class EventBuilder implements EventBuilderInterface
      */
     private function getMissingFields() : array
     {
-        return \array_diff(EventFields::getRequiredFields(), \array_keys($this->builderArgs));
+        return \array_diff(EventFields::getRequiredFields(), $this->getProvidedArgs());
+    }
+    
+    /**
+     * @return string[]
+     */
+    private function getProvidedArgs() : array
+    {
+        return \array_keys(\array_filter($this->builderArgs));
     }
     
     /**
