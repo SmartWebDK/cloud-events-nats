@@ -171,7 +171,7 @@ class EventBuilder implements EventBuilderInterface
     /**
      * @inheritDoc
      */
-    public function setData(array $data) : EventBuilderInterface
+    public function setData($data) : EventBuilderInterface
     {
         $this->builderArgs[EventFields::DATA] = $data;
         

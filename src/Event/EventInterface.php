@@ -25,7 +25,7 @@ interface EventInterface
      *
      * @return string
      */
-    public function getEventType() : string;
+    public function getEventType();
     
     /**
      * The version of the eventType. This enables the interpretation of data by
@@ -35,7 +35,7 @@ interface EventInterface
      *
      * @return null|string
      */
-    public function getEventTypeVersion() : ?string;
+    public function getEventTypeVersion();
     
     /**
      * The version of the CloudEvents specification which the event uses.
@@ -45,7 +45,7 @@ interface EventInterface
      *
      * @return string
      */
-    public function getCloudEventsVersion() : string;
+    public function getCloudEventsVersion();
     
     /**
      * This describes the event producer.
@@ -57,7 +57,7 @@ interface EventInterface
      *
      * @return string
      */
-    public function getSource() : string;
+    public function getSource();
     
     /**
      * ID of the event.
@@ -68,7 +68,7 @@ interface EventInterface
      *
      * @return string
      */
-    public function getEventId() : string;
+    public function getEventId();
     
     /**
      * Timestamp of when the event happened.
@@ -77,7 +77,7 @@ interface EventInterface
      *
      * @return null|string
      */
-    public function getEventTime() : ?string;
+    public function getEventTime();
     
     /**
      * A link to the schema that the data attribute adheres to.
@@ -86,7 +86,7 @@ interface EventInterface
      *
      * @return null|string
      */
-    public function getSchemaURL() : ?string;
+    public function getSchemaURL();
     
     /**
      * Describe the data encoding format.
@@ -95,7 +95,7 @@ interface EventInterface
      *
      * @return null|string
      */
-    public function getContentType() : ?string;
+    public function getContentType();
     
     /**
      * This is for additional metadata and this does not have a mandated structure.
@@ -109,7 +109,7 @@ interface EventInterface
      *
      * @return array|null
      */
-    public function getExtensions() : ?array;
+    public function getExtensions();
     
     /**
      * The event payload.
@@ -119,7 +119,7 @@ interface EventInterface
      *
      * @link https://github.com/cloudevents/spec/blob/v0.1/spec.md#data-1
      *
-     * @return array|null
+     * @return array|object|null
      */
-    public function getData() : ?array;
+    public function getData();
 }

@@ -107,11 +107,11 @@ interface EventBuilderInterface
     /**
      * Set the data of the payload to be created.
      *
-     * @param array $data
+     * @param array|object $data
      *
      * @return EventBuilderInterface
      */
-    public function setData(array $data) : self;
+    public function setData($data) : self;
     
     /**
      * Construct a payload using the configured values of this builder.
