@@ -62,7 +62,7 @@ class Event implements EventInterface
     private $extensions;
     
     /**
-     * @var array|null
+     * @var array|object|null
      */
     private $data;
     
@@ -78,7 +78,7 @@ class Event implements EventInterface
      * @param string|null $schemaURL
      * @param string|null $contentType
      * @param array|null  $extensions
-     * @param array|null  $data
+     * @param array|object|null  $data
      */
     public function __construct(
         string $eventType,
@@ -90,7 +90,7 @@ class Event implements EventInterface
         ?string $schemaURL,
         ?string $contentType,
         ?array $extensions,
-        ?array $data
+        $data
     ) {
         $this->eventType = $eventType;
         $this->eventTypeVersion = $eventTypeVersion;
@@ -107,7 +107,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getEventType() : string
+    public function getEventType()
     {
         return $this->eventType;
     }
@@ -115,7 +115,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getEventTypeVersion() : ?string
+    public function getEventTypeVersion()
     {
         return $this->eventTypeVersion;
     }
@@ -123,7 +123,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getCloudEventsVersion() : string
+    public function getCloudEventsVersion()
     {
         return $this->cloudEventsVersion;
     }
@@ -131,7 +131,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getSource() : string
+    public function getSource()
     {
         return $this->source;
     }
@@ -139,7 +139,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getEventId() : string
+    public function getEventId()
     {
         return $this->eventId;
     }
@@ -147,7 +147,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getEventTime() : ?string
+    public function getEventTime()
     {
         return $this->eventTime;
     }
@@ -155,7 +155,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getSchemaURL() : ?string
+    public function getSchemaURL()
     {
         return $this->schemaURL;
     }
@@ -163,7 +163,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getContentType() : ?string
+    public function getContentType()
     {
         return $this->contentType;
     }
@@ -171,7 +171,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getExtensions() : ?array
+    public function getExtensions()
     {
         return $this->extensions;
     }
@@ -179,7 +179,7 @@ class Event implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getData() : ?array
+    public function getData()
     {
         return $this->data;
     }
